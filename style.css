@@ -36,6 +36,11 @@ header {
     color: #6366f1;
 }
 
+/* Default Desktop View: Hamburger Hidden, Nav Links Visible */
+.menu-toggle {
+    display: none;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -297,23 +302,39 @@ footer {
     margin-top: 40px;
 }
 
-/* --- MENU VISIBILITY RULES --- */
-/* Desktop Screen par Menu Hide rahega */
-@media (min-width: 769px) {
-    .nav-links {
-        display: none !important;
-    }
-}
-
-/* Mobile Screen par Menu Visible rahega */
+/* --- MOBILE RESPONSIVE RULES (Max-width 768px) --- */
 @media (max-width: 768px) {
+    /* Mobile par hamburger button ko far right mein bhej diya hai */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 22px;
+        color: #fff;
+        margin-left: auto;
+    }
+
+    /* Mobile par nav links by default hide rahenge */
     .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(11, 15, 25, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: none; 
+    }
+
+    /* Jab button click hoga tab menu dikhega */
+    .nav-links.active {
         display: flex !important;
-        gap: 12px;
     }
 
     .nav-links a {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .hero-content h1 {
